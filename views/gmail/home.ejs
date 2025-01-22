@@ -1,0 +1,45 @@
+<% layout("layout/boilerplate") %>
+
+<div class="row d-flex align-items-center justify-content-center p-4" style="background-color: #f9f9f9; font-family: Arial, sans-serif;">
+    <div class="col-12 col-md-10 col-lg-8 col-xl-7"> 
+        <% for (let c of gmail_temp) { %>
+        
+        <div class="mt-5 p-3 border rounded shadow-sm bg-white">
+           
+          
+            <div class="card mb-3 border-0">
+                <div class="d-flex align-items-center justify-content-center">
+                    <img src="<%= c.logo %>" alt="Logo" class="img-fluid rounded-circle border" style="width: 100px; height: 100px;">
+                </div>
+            </div>
+
+        
+            <div class="card mb-3 border-0">
+                <div class="d-flex align-items-center justify-content-center">
+                    <h1 class="card-title text-muted text-center"><%= c.title %></h1>
+                </div>
+            </div>
+               <% for(let img of c.images){ %>
+            <div class="card mb-3 border-0">
+                <div class="d-flex align-items-center justify-content-center">
+                    <img src="<%= img.url%>" alt="Image" class="img-fluid rounded" style="object-fit: cover; height: auto;">
+                </div>
+            </div>
+            <% } %>
+
+           
+            <div class="card mb-3 border-0">
+                <div class="d-flex align-items-center justify-content-center">
+                    <h4 class="text-muted text-center"><%= c.content %></h4>
+                </div>
+            </div>
+
+            
+            <div class="d-flex justify-content-between mt-1">
+                <a href="/gmail_temp/<%= c._id %>" class="btn btn-info px-4 py-2 ms-1" style="border-radius: 20px; font-size: 1rem; font-weight: bold; transition: background-color 0.3s;">Show layout</a>
+                <a href="/gmail_temp/<%= c._id %>/edit" class="btn btn-success px-5 py-2" style="border-radius: 20px; font-size: 1rem; font-weight: bold; transition: background-color 0.3s;">Use</a>
+            </div>
+        </div>
+        <% } %>
+    </div>
+</div>

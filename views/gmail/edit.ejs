@@ -1,0 +1,83 @@
+<% layout("layout/boilerplate") %>
+
+<div class="row p-4" style="background-color: #f9f9f9; font-family: Arial, sans-serif;">
+    
+    
+    <div class="text-center mb-4">
+        <h1 style="color: #333; ">New Layout</h1>
+    </div>
+    
+    
+   
+    <div class="col-12 col-md-7 mb-4">
+        <h2 class="text-center text-muted mb-3">Layout Overview</h2>
+
+       
+        <div class="d-flex align-items-center justify-content-center mb-3">
+            <img src="<%= gmail_temp.logo %>" alt="Logo" class="img-fluid rounded-circle border" style="height: 150px; width: 150px;">
+        </div>
+
+       
+        <div class="card mb-3 shadow-sm">
+            <div class="card-body text-center">
+                <h2 class="card-title text-muted"><%= gmail_temp.title %></h2>
+            </div>
+        </div>
+
+       <% for ( let img of gmail_temp.images) {%>
+        <div class="card mb-3 shadow-sm">
+            <div class="card-body text-center p-0">
+                <img src="<%= img.url %>" alt="Image" class="img-fluid rounded" style="object-fit: cover; height: auto;">
+            </div>
+        </div>
+        <% } %>
+
+   
+        <div class="card shadow-sm">
+            <div class="card-body text-center">
+                <h4 class="text-muted"><%= gmail_temp.content %></h4>
+            </div>
+        </div>
+    </div>
+
+  
+    <div class="col-12 col-md-5 mt-3">
+        <div class="card shadow-sm p-4">
+            <h2 class="text-center text-muted mb-4">Make Changes</h2>
+
+            <form action="/gmail_temp/" method="post"  class="check-validation" enctype="multipart/form-data">
+               
+                <div class="mb-3">
+                    <label class="form-label" for="logo">Logo URL</label>
+                    <input class="form-control" type="text" id="logo" name="gmail[logo]" value="<%= gmail_temp.logo %>" required>
+                    <div class="valid-feedback">Looks good!</div>
+                </div>
+
+               
+                <div class="mb-3">
+                    <label class="form-label" for="title">Title</label>
+                    <input class="form-control" type="text" id="title" name="gmail[title]" value="<%= gmail_temp.title %>" required>
+                    <div class="valid-feedback">Looks good!</div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label" for="content">Content</label>
+                    <textarea class="form-control" id="content" name="gmail[content]" rows="4" required><%= gmail_temp.content %></textarea>
+                    <div class="valid-feedback">Looks good!</div>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label" for="image"> Add Images </label>
+                    <input class="form-control" type="file" id="image" name="image"  multiple required>
+                    <div class="valid-feedback">Looks good!</div>
+                </div>
+
+               
+
+           
+                <div class="text-center d-inline me-5">
+                    <button class="btn btn-success px-4">Add Layout</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
