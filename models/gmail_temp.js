@@ -27,7 +27,7 @@ const gmailSchema=new schema({
 })
 const Gmail_temp= mongoose.model("Gmail_temp",gmailSchema)
 const newGmail=async function () {
-   await Gmail_temp.deleteMany({})
+  
 const mygmail= new Gmail_temp({
     title:"One  of a kind",
     content:`The best formates are waiting 
