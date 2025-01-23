@@ -194,7 +194,20 @@ app.get("/gmail_temp", catchAsync(async (req, res,next) => {
           </html>
           `;
   
-          const browser = await puppeteer.launch({ ignoreHTTPSErrors: true });
+          const browser = await puppeteer.launch({
+            headless: true, // Ensures Chromium runs in headless mode
+            ignoreHTTPSErrors: true,
+            args: [
+              "--no-sandbox", // Disables the sandbox for Chromium
+              "--disable-setuid-sandbox", // Prevents errors due to sandboxing
+              "--disable-dev-shm-usage", // Avoids shared memory issues
+              "--disable-accelerated-2d-canvas",
+              "--no-zygote",
+              "--disable-gpu", // Optional if GPU support isn't required
+              "--single-process",
+            ],
+          });
+          
           const page = await browser.newPage();
   
           // Set content and wait for resources to load
