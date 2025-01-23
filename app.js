@@ -195,16 +195,16 @@ app.get("/gmail_temp", catchAsync(async (req, res,next) => {
           `;
   
           const browser = await puppeteer.launch({
-            headless: true, // Ensures Chromium runs in headless mode
+            headless: true,
             ignoreHTTPSErrors: true,
+            executablePath: '/usr/bin/chromium', // Or the actual path to Chromium in your Render environment
             args: [
-              "--no-sandbox", // Disables the sandbox for Chromium
-              "--disable-setuid-sandbox", // Prevents errors due to sandboxing
-              "--disable-dev-shm-usage", // Avoids shared memory issues
-              "--disable-accelerated-2d-canvas",
-              "--no-zygote",
-              "--disable-gpu", // Optional if GPU support isn't required
+              "--no-sandbox",
+              "--disable-setuid-sandbox",
+              "--disable-dev-shm-usage",
               "--single-process",
+              "--no-zygote",
+              "--disable-gpu",
             ],
           });
           
