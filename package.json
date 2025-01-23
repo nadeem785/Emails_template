@@ -1,5 +1,4 @@
 {
-  
   "name": "@babel/code-frame",
   "version": "7.26.2",
   "description": "Generate errors that contain a code frame that point to source locations.",
