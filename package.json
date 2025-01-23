@@ -1,27 +1,46 @@
 {
-  "name": "gmail_template",
-  "version": "1.0.0",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  
+  "name": "@babel/code-frame",
+  "version": "7.26.2",
+  "description": "Generate errors that contain a code frame that point to source locations.",
+  "author": "The Babel Team (https://babel.dev/team)",
+  "homepage": "https://babel.dev/docs/en/next/babel-code-frame",
+  "bugs": "https://github.com/babel/babel/issues?utf8=%E2%9C%93&q=is%3Aissue+is%3Aopen",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/babel/babel.git",
+    "directory": "packages/babel-code-frame"
+  },
+  "main": "./lib/index.js",
   "dependencies": {
+    "@babel/helper-validator-identifier": "^7.25.9",
     "cloudinary": "^1.41.3",
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "ejs-mate": "^4.0.0",
     "express": "^4.21.2",
+    "install": "^0.13.0",
+    "js-tokens": "^4.0.0",
     "method-override": "^3.0.0",
     "mongoose": "^8.9.5",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.1",
     "multer-storage-cloudinary": "^4.0.0",
     "node-fetch": "^2.7.0",
-    "puppeteer": "^24.1.0",
-    "tiny": "^0.0.10"
-  }
+    "npm": "^11.0.0",
+    "picocolors": "^1.0.0",
+    "puppeteer": "^24.1.0"
+  },
+  "devDependencies": {
+    "import-meta-resolve": "^4.1.0",
+    "strip-ansi": "^4.0.0"
+  },
+  "engines": {
+    "node": ">=6.9.0"
+  },
+  "type": "commonjs"
 }

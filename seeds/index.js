@@ -1,34 +1,24 @@
-const express= require("express")
-const app = express()
-const mongoose=require("mongoose")
-const schema=mongoose.Schema;
+
+const express=require("express")
+const app=express()
+const mongoose = require('mongoose');
+const Gmail_temp = require("../models/index");
+
 
 main().catch(err => console.log(err));
 
 async function main() {
-  await mongoose.connect(process.env.DB_URL);
+  await mongoose.connect('mongodb+srv://IzAIzIsFtL2svnVv:IzAIzIsFtL2svnVv@cluster0.uponu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0');
 console.log("connected to database")
   // use `await mongoose.connect('mongodb://user:password@127.0.0.1:27017/test');` if your database has auth enabled
 }
 
-const gmailSchema=new schema({
-    title:String,
-    content:String,
-    images:[
-      {
-        url:String,
-        filename:String
-      }
 
-    ],
-    logo:String
-
-
-})
-const Gmail_temp= mongoose.model("Gmail_temp",gmailSchema)
 const newGmail=async function () {
+    await Gmail_temp.deleteMany({});
   
 const mygmail= new Gmail_temp({
+
     title:"One  of a kind",
     content:`The best formates are waiting 
     for you ,just move your cursor`,
@@ -46,5 +36,3 @@ await mygmail.save()
 newGmail().then(()=>{
   mongoose.connection.close();
 })
-
-module.exports=mongoose.model("Gmail_temp",gmailSchema)
